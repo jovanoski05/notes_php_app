@@ -1,4 +1,4 @@
-# notes_php_app
+# PHP Notes App
 
 ## About this project
 
