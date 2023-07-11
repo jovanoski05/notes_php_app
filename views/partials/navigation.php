@@ -34,9 +34,10 @@
         <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>-->
-
-      <a href="#" class="nav-link">Log Out</a>
-
+      <ul class="navbar-nav">
+        <a href="#" class="nav-link">Log In</a>
+        <a href="#" class="nav-link">Sign Up</a>
+      </ul>
     </div>
   </div>
 </nav>
