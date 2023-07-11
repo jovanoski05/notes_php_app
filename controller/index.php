@@ -2,6 +2,8 @@
 
     $header="Home";
 
+    //Custom cards used now for the demo 
+    //This will be deleted soon
     $cards = [
         0 => [
             'title' => 'First title',
@@ -22,5 +24,6 @@
             'date' => '10-07-2023'
         ]
     ];
+    //--------------
 
     include "views/index.view.php";

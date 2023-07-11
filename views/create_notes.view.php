@@ -6,5 +6,9 @@
 ?>
 
 <?php
+    require "partials/card_input_form.php";
+?>
+
+<?php
     require "partials/footer.php";
 ?>
