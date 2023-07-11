@@ -19,6 +19,7 @@ accessing static files and images.
 I am using MySQL and PDO connection between PHP and the database.
 
 The database has 2 tables: 'users' and 'notes'. In the users table I have 4 columns: 'id' - user id, primary key; 'username' - the unique username; 'email' - the unique email of the user; 'password' - the hashed password of the user.
+
 The 'notes' tables has 6 columns: 'id' - primary key; 'title' - varchar(255), the title of the note; 'subtitle' - the subtitle of the note, varchar(128); 'body' - the main content of the note, text; 'date_created' - date when this note was created; 'user_id' - the of the author.
 
 In the table 'notes', 'user_id' is a foreign key referencing to the column 'id' of table 'users'.
