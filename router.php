@@ -5,7 +5,8 @@ $url = $url["path"];
 
 $valid_uris =[
     "/notesapp/" => "controller/index.php",
-    "/notesapp/create_notes" => "controller/create_notes.php"
+    "/notesapp/create_notes" => "controller/create_notes.php",
+    "/notesapp/login" => "controller/login.php"
 ];
 
 function routeToUrl($url, $valid_uris, $result_query){      // adding $result_query in oreder to get the fetched results in the targeted page
