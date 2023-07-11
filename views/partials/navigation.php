@@ -35,7 +35,7 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>-->
       <ul class="navbar-nav">
-        <a href="#" class="nav-link">Log In</a>
+        <a href="/notesapp/login" class="nav-link">Log In</a>
         <a href="#" class="nav-link">Sign Up</a>
       </ul>
     </div>
