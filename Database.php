@@ -14,5 +14,6 @@ class Database{
         $statement = $this->connection->prepare($query);
         $statement->execute();
         return $statement;
+
     }
 }

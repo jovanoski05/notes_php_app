@@ -4,7 +4,7 @@
 
     //Custom cards used now for the demo 
     //This will be deleted soon
-    $cards = [
+    /*$cards = [
         0 => [
             'title' => 'First title',
             'subtitle' => 'First subtitle',
@@ -23,7 +23,8 @@
             'content' => 'This is some content that will be displayed on the card',
             'date' => '10-07-2023'
         ]
-    ];
+    ];*/
     //--------------
-
+    //Declaring cards to be equal to the result query - Later I will optimize the query
+    $cards=$result_query;
     include "views/index.view.php";
