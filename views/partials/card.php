@@ -2,6 +2,9 @@
   <div class="card-header"><?= $card['date'] ?></div>
   <div class="card-body">
     <h5 class="card-title"><?= $card['title'] ?></h5>
+    <?php if (!empty($card['subtitle'])) : ?>
+        <h6 class="card-subtitle mb-2"><?= $card['subtitle'] ?></h6>
+    <?php endif ?>
     <p class="card-text"><?= $card['content'] ?></p>
   </div>
 </div>

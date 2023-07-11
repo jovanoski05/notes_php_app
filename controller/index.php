@@ -14,6 +14,12 @@
             'subtitle' => 'Second subtitle',
             'content' => 'This is some content that will be displayed on the card',
             'date' => '10-07-2023'
+        ],
+        2 => [
+            'title' => 'Third title',
+            'subtitle' => '',
+            'content' => 'This is some content that will be displayed on the card',
+            'date' => '10-07-2023'
         ]
     ];
 
