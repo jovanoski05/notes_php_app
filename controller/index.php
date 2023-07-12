@@ -2,7 +2,7 @@
 
     $header="My Notes";
     $db=new Database($config['database']);
-    $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->fetchAll();
+    $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->findAll();
     //Custom cards used now for the demo 
     //This will be deleted soon
     /*$cards = [
