@@ -1,5 +1,7 @@
 <?php
 
+    require "Validator.php";
+
     $header="Create your new note";     // The title for the current page and it is displayed using the title.php file
     $db=new Database($config['database']);
     if ($_SERVER['REQUEST_METHOD']=="POST"){
@@ -10,23 +12,15 @@
         $subtitle=htmlspecialchars($_POST['subtitle']);
         $content=htmlspecialchars($_POST['content']);
 
-        if (strlen($_POST['title'])==0){
-            $errors['title'] = "A title is required";
+        if (!Validator::lenVal($title, 1, 255)){
+            $errors['title'] = "A title of maximum 255 characters is required";
         }
-        if (strlen($_POST['content'])==0){
-            $errors['content'] = "A content is required";
-        }
-
-        if (strlen($_POST['title'])>255){
-            $errors['title']="Title cannot be longer than 255 characters";
+        if (!Validator::lenVal($content, 1, 2500)){
+            $errors['content'] = "A content of maximum 2500 characters is required";
         }
 
-        if (strlen($_POST['subtitle'])>255){
+        if (!Validator::lenVal($subtitle, 0, 255)){
             $errors['subtitle']="Subtitle cannot be longer than 255 characters";
-        }
-
-        if (strlen($_POST['content'])>2500){
-            $errors['content']="The content cannot be longer than 2500 characters";
         }
         
 
