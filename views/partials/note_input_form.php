@@ -1,10 +1,20 @@
 <div style="padding:15px;justify-content:center;" class="d-flex text-center">
     <form method="POST">
     <div class="form-group">
-        <label for="title">Title</label>
-        <input type="text" class="form-control mb-3" id="title" name="title" placeholder="Title">
-        <label for="subtitle">Subtitle</label>
-        <input type="text" class="form-control mb-3" id="subtitle" name="subtitle" placeholder="Subtitle [Optional]">
+        <div class="m-3">
+            <label for="title">Title</label>
+            <input type="text" value="<?= $_POST["title"] ?? '' ?>" class="form-control <?= !empty($errors['title']) ? 'is-invalid' : '' ?>" id="title" name="title" placeholder="Title" required>
+            <div class="invalid-feedback">
+                <?= $errors['title'] ?>
+            </div>
+        </div>
+        <div class="m-3">
+            <label for="subtitle">Subtitle</label>
+            <input type="text" value="<?= $_POST["subtitle"] ?? '' ?>" class="form-control <?= !empty($errors['subtitle']) ? 'is-invalid' : '' ?>" id="subtitle" name="subtitle" placeholder="Subtitle [Optional]">
+            <div class="invalid-feedback">
+                <?= $errors['subtitle'] ?>
+            </div>
+        </div>
     </div>
     <!--<div class="form-group">
         <label for="exampleFormControlSelect1">Example select</label>
@@ -28,7 +38,10 @@
     </div>-->
     <div class="form-group">
         <label for="content">Note content</label>
-        <textarea class="form-control" id="content" name="content" rows="3"></textarea>
+        <textarea class="form-control <?= !empty($errors['content']) ? 'is-invalid' : '' ?>" id="content" name="content" rows="3" required><?= $_POST["content"] ?? '' ?></textarea>
+        <div class="invalid-feedback">
+                <?= $errors['content'] ?>
+        </div>
     </div>
     <input type="submit" class="btn btn-outline-warning m-3" value="Create Note">
     </form>
