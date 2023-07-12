@@ -10,9 +10,9 @@ class Database{
         $this->connection = new PDO($dsn, $user, $password);
     }
 
-    public function query($query){      //$query is the query that will be executed
+    public function query($query, $params=[]){      //$query is the query that will be executed
         $statement = $this->connection->prepare($query);
-        $statement->execute();
+        $statement->execute($params);
         return $statement;
 
     }
