@@ -1,4 +1,9 @@
 <?php
 
 $db=new Database($config['database']);
-$cards=$db->query("SELECT * FROM notes WHERE user_id=1")->fetchAll();
+
+$card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->fetch();
+
+//dd($card);
+
+require "views/note.view.php";

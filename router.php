@@ -7,7 +7,8 @@ $config = require "config.php";
 $valid_uris =[
     "/notesapp/" => "controller/index.php",
     "/notesapp/create_notes" => "controller/create_notes.php",
-    "/notesapp/login" => "controller/login.php"
+    "/notesapp/login" => "controller/login.php",
+    "/notesapp/note" => "controller/note.php"
 ];
 
 function routeToUrl($url, $valid_uris, $config){      // adding $result_query in oreder to get the fetched results in the targeted page
