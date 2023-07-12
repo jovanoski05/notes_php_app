@@ -13,7 +13,7 @@
           <a class="nav-link <?= $url=="/notesapp/" ? 'active' : null ?>" aria-current="page" href="/notesapp/">My Notes</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link <?= $url=="/notesapp/create_notes" ? 'active' : null ?>" href="/notesapp/create_notes">Create Notes</a>
+          <a class="nav-link <?= $url=="/notesapp/note/create" ? 'active' : null ?>" href="/notesapp/note/create">Create Notes</a>
         </li>
         <!--<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
