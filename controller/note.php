@@ -6,8 +6,10 @@ $card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->f
 
 if (!$card){
     abort();
-} else {
-    require "views/note.view.php";
+} else if ($card['user_id']!=1){
+    abort(403);
 }
+
+require "views/note.view.php";
 
 //dd($card);

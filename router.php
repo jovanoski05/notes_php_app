@@ -21,6 +21,7 @@ function routeToUrl($url, $valid_uris, $config){      // adding $result_query in
 
 function abort($code=404){
     require "views/{$code}.php";
+    die();
 }
 
 routeToUrl($url, $valid_uris, $config);
