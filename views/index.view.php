@@ -4,7 +4,7 @@
     require "partials/navigation.php";
     require "partials/title.php";
 ?>
-<div style="padding:25px;" class="d-flex">
+<div style="padding:25px;" class="d-flex justify-content-center">
         <?php 
             foreach ($cards as $card){
                 require "partials/card.php";
