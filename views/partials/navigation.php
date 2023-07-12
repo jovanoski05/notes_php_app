@@ -10,7 +10,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link <?= $url=="/notesapp/" ? 'active' : null ?>" aria-current="page" href="/notesapp/">Home</a>
+          <a class="nav-link <?= $url=="/notesapp/" ? 'active' : null ?>" aria-current="page" href="/notesapp/">My Notes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?= $url=="/notesapp/create_notes" ? 'active' : null ?>" href="/notesapp/create_notes">Create Notes</a>
