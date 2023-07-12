@@ -6,7 +6,7 @@
 ?>
 
 <?php
-    require "partials/card_input_form.php";
+    require "partials/note_input_form.php";
 ?>
 
 <?php
