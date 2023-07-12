@@ -2,6 +2,7 @@
 
 $url = parse_url($_SERVER["REQUEST_URI"]);
 $url = $url["path"];
+$config = require "config.php";
 
 $valid_uris =[
     "/notesapp/" => "controller/index.php",
@@ -9,7 +10,7 @@ $valid_uris =[
     "/notesapp/login" => "controller/login.php"
 ];
 
-function routeToUrl($url, $valid_uris){      // adding $result_query in oreder to get the fetched results in the targeted page
+function routeToUrl($url, $valid_uris, $config){      // adding $result_query in oreder to get the fetched results in the targeted page
     if (array_key_exists($url, $valid_uris)){
         require $valid_uris[$url];
     }else {
@@ -21,4 +22,4 @@ function abort($code){
     require "views/{$code}.php";
 }
 
-routeToUrl($url, $valid_uris);
+routeToUrl($url, $valid_uris, $config);
