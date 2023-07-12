@@ -2,6 +2,7 @@
 
     require "Database.php";
     include "functions.php";
+    //dd($_GET['id']);
     $config=require "config.php";
     $db=new Database($config['database']);
     $query="SELECT * FROM notes";
