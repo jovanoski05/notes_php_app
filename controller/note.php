@@ -8,7 +8,9 @@ $current_user_id=1;
 
 if (!$card){
     abort();
-} else if ($card['user_id']!=$current_user_id){
+}
+
+if ($card['user_id']!=$current_user_id){
     abort(Response::FORBIDDEN);
 }
 
