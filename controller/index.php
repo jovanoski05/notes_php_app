@@ -1,7 +1,9 @@
 <?php
 
     $header="Home";
-
+    $config=require "config.php";
+    $db=new Database($config['database']);
+    $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->fetchAll(PDO::FETCH_ASSOC);
     //Custom cards used now for the demo 
     //This will be deleted soon
     /*$cards = [
@@ -26,5 +28,4 @@
     ];*/
     //--------------
     //Declaring cards to be equal to the result query - Later I will optimize the query
-    $cards=$result_query;
     include "views/index.view.php";
