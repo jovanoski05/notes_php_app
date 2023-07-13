@@ -1,5 +1,4 @@
 <?php
-
     $header="My Notes";
     $db=new Database($config['database']);
     $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->findAll();
@@ -27,4 +26,4 @@
     ];*/
     //--------------
     //Declaring cards to be equal to the result query - Later I will optimize the query
-    include "views/index.view.php";
+    include view("index.view.php");

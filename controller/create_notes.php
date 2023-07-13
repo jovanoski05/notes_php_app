@@ -1,6 +1,6 @@
 <?php
 
-    require "Validator.php";
+    require base_path("Validator.php");
 
     $header="Create your new note";     // The title for the current page and it is displayed using the title.php file
     $db=new Database($config['database']);
@@ -38,4 +38,4 @@
             ]);
         }
     }
-    include "views/create_notes.view.php";  
+    include view("create_notes.view.php");  
