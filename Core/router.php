@@ -2,9 +2,9 @@
 
 $url = parse_url($_SERVER["REQUEST_URI"]);
 $url = $url["path"];
-$config = require "config.php";
+$config = require base_path("config.php");
 
-$valid_uris = require "routes.php";
+$valid_uris = require base_path("routes.php");
 
 function routeToUrl($url, $valid_uris, $config){      // adding $result_query in oreder to get the fetched results in the targeted page
     if (array_key_exists($url, $valid_uris)){
@@ -15,7 +15,7 @@ function routeToUrl($url, $valid_uris, $config){      // adding $result_query in
 }
 
 function abort($code=404){
-    require "views/{$code}.php";
+    require base_path("views/{$code}.php");
     die();
 }
 
