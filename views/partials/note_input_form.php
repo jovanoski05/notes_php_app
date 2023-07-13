@@ -1,5 +1,5 @@
 <div style="padding:15px;justify-content:center;" class="d-flex text-center">
-    <form method="POST">
+    <form method="POST" action="/notesapp/note/create">
     <div class="form-group">
         <div class="m-3">
             <label for="title">Title</label>

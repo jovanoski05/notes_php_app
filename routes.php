@@ -7,6 +7,12 @@
 ];*/
 
 $router->get('/notesapp/', "controller/index.php");
+
 $router->get('/notesapp/note/create', "controller/create_notes.php");
+$router->post('/notesapp/note/create', "controller/store.php");
+
 $router->get('/notesapp/login', "controller/login.php");
+
+
 $router->get('/notesapp/note', "controller/note.php");
+$router->delete('/notesapp/note', "controller/destroy.php");
