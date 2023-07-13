@@ -6,5 +6,9 @@
         <h6 class="card-subtitle mb-2"><?= $card['subtitle'] ?></h6>
     <?php endif ?>
     <p class="card-text"><?= $card['body'] ?></p>
+    <form method="POST">
+      <input type="hidden" value="<?= $card['id'] ?>" name="id">
+      <input type="submit" class="btn btn-danger" value="Delete Note">
+    </form>
   </div>
 </div>

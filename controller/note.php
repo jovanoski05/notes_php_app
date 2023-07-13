@@ -4,16 +4,28 @@ use Core\Database;
 
 $db=new Database($config['database']);
 
-$card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->findOrFail();
-
 $current_user_id = 1;
 
-/*if ($card['user_id']!=$current_user_id){
-    abort(Response::FORBIDDEN);
-}*/
+if ($_SERVER['REQUEST_METHOD']=='POST'){
 
-authorize($card['user_id']==$current_user_id);
+    $card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->findOrFail();
+    authorize($card['user_id']==$current_user_id);
+    $db->query("DELETE FROM notes WHERE id=:id", [
+        'id' => $_GET['id']
+    ]);
+    header('location: /notesapp/');
+}else {
+    $card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->findOrFail();
 
-require view("note.view.php");
+    //dd($_SERVER);
 
-//dd($card);
+    /*if ($card['user_id']!=$current_user_id){
+        abort(Response::FORBIDDEN);
+    }*/
+
+    authorize($card['user_id']==$current_user_id);
+
+    require view("note.view.php");
+
+    //dd($card);
+}
