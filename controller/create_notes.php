@@ -38,6 +38,8 @@
                 'subtitle' => $subtitle,
                 'body' => $content
             ]);
+
+            header('location: /notesapp/');
         }
     }
     include view("create_notes.view.php");  
