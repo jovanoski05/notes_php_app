@@ -1,6 +1,6 @@
 <?php
 
-    require base_path("Validator.php");
+    require base_path("Core/Validator.php");
 
     $header="Create your new note";     // The title for the current page and it is displayed using the title.php file
     $db=new Database($config['database']);
