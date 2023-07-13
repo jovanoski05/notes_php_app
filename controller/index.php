@@ -3,6 +3,8 @@
     use Core\Database;
     
     $header="My Notes";
+    $config =require base_path('config.php');
+
     $db=new Database($config['database']);
     $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->findAll();
     //Custom cards used now for the demo 

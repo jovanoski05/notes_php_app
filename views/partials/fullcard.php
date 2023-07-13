@@ -7,6 +7,7 @@
     <?php endif ?>
     <p class="card-text"><?= $card['body'] ?></p>
     <form method="POST">
+      <input type="hidden" name="method" value="DELETE">
       <input type="hidden" value="<?= $card['id'] ?>" name="id">
       <input type="submit" class="btn btn-danger" value="Delete Note">
     </form>
