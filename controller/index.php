@@ -1,11 +1,12 @@
 <?php
 
     use Core\Database;
+    use Core\App;
     
     $header="My Notes";
-    $config =require base_path('config.php');
+    require base_path("bootstrap.php");
+    $db = App::resolve(Database::class);
 
-    $db=new Database($config['database']);
     $cards=$db->query("SELECT * FROM notes WHERE user_id=1")->findAll();
     //Custom cards used now for the demo 
     //This will be deleted soon

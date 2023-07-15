@@ -10,6 +10,7 @@
       <input type="hidden" name="_method" value="DELETE">
       <input type="hidden" value="<?= $card['id'] ?>" name="id">
       <input type="submit" class="btn btn-danger" value="Delete Note">
+      <input type="submit" class="btn btn-light" value="Edit">
     </form>
   </div>
 </div>
