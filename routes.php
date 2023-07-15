@@ -16,3 +16,6 @@ $router->get('/notesapp/login', "controller/login.php");
 
 $router->get('/notesapp/note', "controller/note.php");
 $router->delete('/notesapp/note', "controller/destroy.php");
+
+$router->get('/notesapp/note/edit', 'controller/edit_note.php');
+$router->patch('/notesapp/note/edit', 'controller/update.php');

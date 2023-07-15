@@ -6,11 +6,11 @@
         <h6 class="card-subtitle mb-2"><?= $card['subtitle'] ?></h6>
     <?php endif ?>
     <p class="card-text"><?= $card['body'] ?></p>
-    <form method="POST">
-      <input type="hidden" name="_method" value="DELETE">
-      <input type="hidden" value="<?= $card['id'] ?>" name="id">
-      <input type="submit" class="btn btn-danger" value="Delete Note">
-      <input type="submit" class="btn btn-light" value="Edit">
+    <a href="/notesapp/note/edit?id=<?= $card['id'] ?>" class="btn btn-light">Edit note</a>
+    <form action="/notesapp/note" method="POST" class="justify-self-center mt-2">
+    <input type="hidden" name="_method" value="DELETE">
+        <input type="hidden" value="<?= $card['id'] ?>" name="id">
+        <input type="submit" class="btn btn-outline-danger" value="Delete note">
     </form>
   </div>
 </div>

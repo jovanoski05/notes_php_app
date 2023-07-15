@@ -10,7 +10,7 @@ $db = App::resolve(Database::class);
 
 $current_user_id = 1;
 
-$card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_GET['id']])->findOrFail();
+$card=$db->query("SELECT * FROM notes WHERE id = :id", ['id' => $_POST['id']])->findOrFail();
 
 authorize($card['user_id']==$current_user_id);
 
