@@ -2,6 +2,10 @@
 
 namespace Core;
 
+use Core\Middleware\Guest;
+use Core\Middleware\Auth;
+use Core\Middleware\Middleware;
+
 class Router{
 
     protected $routes = [];
@@ -45,15 +49,13 @@ class Router{
         foreach ($this->routes as $route){
             if ($route['uri'] == $uri && $route['method'] == strtoupper($method)){
 
+                Middleware::resolve($route['middleware']);         
+
             if ($route['middleware'] == 'guest'){
-                if (isset($_SESSION['username'])){
-                    header('location: /notesapp/');
-                }
+                (new Guest())->handle();
             }
             if ($route['middleware'] == 'auth'){
-                if (!isset($_SESSION['username'])){
-                    header('location: /notesapp/login');
-                }
+                (new Auth())->handle();
             }
             
                 return require base_path($route['controller']);
