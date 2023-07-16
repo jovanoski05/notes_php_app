@@ -20,5 +20,5 @@ $router->delete('/notesapp/note', "controller/destroy.php");
 $router->get('/notesapp/note/edit', 'controller/edit_note.php');
 $router->patch('/notesapp/note/edit', 'controller/update.php');
 
-$router->get('/notesapp/signup', 'controller/signup.php');
+$router->get('/notesapp/signup', 'controller/signup.php')->only("guest");
 $router->post('/notesapp/signup', 'controller/signup_store.php');
