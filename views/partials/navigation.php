@@ -35,8 +35,12 @@
         <button class="btn btn-outline-success" type="submit">Search</button>
       </form>-->
       <ul class="navbar-nav">
+        <?php if (isset($_SESSION['username'])) : ?>
+          <a href="#" class="nav-link"><?= $_SESSION['username'] ?></a>
+        <?php else :?>
         <a href="/notesapp/login" class="nav-link">Log In</a>
         <a href="/notesapp/signup" class="nav-link">Sign Up</a>
+        <?php endif ?>
       </ul>
     </div>
   </div>
