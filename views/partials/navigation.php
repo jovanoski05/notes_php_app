@@ -36,7 +36,7 @@
       </form>-->
       <ul class="navbar-nav">
         <a href="/notesapp/login" class="nav-link">Log In</a>
-        <a href="#" class="nav-link">Sign Up</a>
+        <a href="/notesapp/signup" class="nav-link">Sign Up</a>
       </ul>
     </div>
   </div>

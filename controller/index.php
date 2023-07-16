@@ -2,8 +2,10 @@
 
     use Core\Database;
     use Core\App;
+
+    $_SESSION['name'] = "Ivan";
     
-    $header="My Notes";
+    $header="Hi ". ($_SESSION['name'] ?? 'Guest') .", these are your notes ";
     require base_path("bootstrap.php");
     $db = App::resolve(Database::class);
 

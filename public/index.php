@@ -4,6 +4,8 @@
     use Core\Container;
     use Core\Database;
 
+    session_start();
+
     const BASE_PATH = __DIR__ . '/../';
     
     include BASE_PATH ."Core/functions.php";
