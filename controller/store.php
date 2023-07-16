@@ -28,7 +28,8 @@ if (!Validator::lenVal($subtitle, 0, 255)){
 }
 
 if (!empty($errors)){
-    return view("create_notes.view.php");
+    require view("create_notes.view.php");
+    die();
 }
 
 if (empty($errors)){

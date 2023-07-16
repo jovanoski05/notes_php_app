@@ -1,3 +1,5 @@
 <?php
 
-require view("signup.view.php");
+$errors=[];
+
+require view("signup.view.php", $errors);

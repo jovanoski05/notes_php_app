@@ -6,3 +6,5 @@ $header="Sign Up";
 require "partials/title.php";
 
 require "partials/signup_form.php";
+
+require "partials/footer.php";
