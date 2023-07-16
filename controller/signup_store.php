@@ -1,11 +1,14 @@
 <?php
 
 use Core\Validator;
+use Core\App;
+use Core\Database;
 
 $email=htmlspecialchars($_POST['email']);
 $username=htmlspecialchars($_POST['username']);
 $password=htmlspecialchars($_POST['password']);
 $confirm_password=htmlspecialchars($_POST['confirm_password']);
+require base_path("bootstrap.php");
 
 $errors=[];
 
@@ -33,4 +36,26 @@ if (!empty($errors)){
    //dd($errors);
     require view("signup.view.php", $errors);
     die();
+}
+
+
+$db = App::resolve(Database::class);
+
+$users = $db->query("SELECT * FROM users WHERE email = :email OR username = :username", [
+    'email' => $email,
+    'username' => $username
+])->find();
+
+if ($users) {
+    header('location: /notesapp/login');
+    exit();
+}else{
+    $db->query("INSERT INTO users (username, email, password) VALUES (:username, :email, :password)", [
+        'username' => $username,
+        'email' => $email,
+        'password' => $password
+    ]);
+    $_SESSION['username'] = $username;
+    header('location: /notesapp/');
+    exit();
 }
