@@ -12,7 +12,7 @@ $router->get('/notesapp/note/create', "controller/create_notes.php")->only("auth
 $router->post('/notesapp/note/create', "controller/store.php");
 
 $router->get('/notesapp/login', "controller/login.php")->only("guest");
-
+$router->post('/notesapp/login', "controller/login_store.php")->only("guest");
 
 $router->get('/notesapp/note', "controller/note.php")->only("auth");
 $router->delete('/notesapp/note', "controller/destroy.php");

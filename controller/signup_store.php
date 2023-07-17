@@ -55,7 +55,7 @@ if ($users) {
         'email' => $email,
         'password' => password_hash($password, PASSWORD_BCRYPT)
     ]);
-    $_SESSION['username'] = $username;
+    login($username);
     header('location: /notesapp/');
     exit();
 }

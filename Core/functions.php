@@ -32,3 +32,8 @@ function view($path, $attributes = []){
 
     return base_path('views/'. $path);
 }
+
+function login($user)
+{
+    $_SESSION['username'] = $user;
+}
