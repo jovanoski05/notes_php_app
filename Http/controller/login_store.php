@@ -1,10 +1,7 @@
 <?php
-use Core\Validator;
-use Core\App;
-use Core\Database;
-use Http\Forms\LoginForm;
 
-$errors=[];
+use Http\Forms\LoginForm;
+use Core\Authenticator;
 
 include base_path('bootstrap.php');
 
@@ -13,24 +10,16 @@ $password=htmlspecialchars($_POST['password']);
 
 $form = new LoginForm();
 
-if (!$form->validate($email, $password)){
-    $errors=$form->_get();
-    require view("login.view.php", $errors);
-    die();
+if ($form->validate($email, $password)){
+
+    if ((new Authenticator)->attempt($email, $password)){
+        redirect('/notesapp/');
+    } 
+    
+    $form->error('email_password', 'Incorrect email or password');
 }
 
-$db = App::resolve(Database::class);
+$errors=$form->_get();
+require view("login.view.php", $errors);
+die();
 
-$user = $db->query("SELECT * FROM users WHERE email = :email", [
-    'email' => $email
-])->find();
-
-if (!$user || !password_verify($password, $user['password'])){
-    $errors['email_password'] = "Incorrect email or password";
-    require view("login.view.php");
-    die();
-}
-
-login($user['username']);
-header('location: /notesapp/');
-exit();
