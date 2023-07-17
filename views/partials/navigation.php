@@ -9,12 +9,14 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+      <?php if (isset($_SESSION['username'])) : ?>
         <li class="nav-item">
           <a class="nav-link <?= $url=="/notesapp/" ? 'active' : null ?>" aria-current="page" href="/notesapp/">My Notes</a>
         </li>
         <li class="nav-item">
           <a class="nav-link <?= $url=="/notesapp/note/create" ? 'active' : null ?>" href="/notesapp/note/create">Create Notes</a>
         </li>
+        <?php endif ?>
         <!--<li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
             Dropdown
@@ -36,7 +38,11 @@
       </form>-->
       <ul class="navbar-nav">
         <?php if (isset($_SESSION['username'])) : ?>
-          <a href="#" class="nav-link"><?= $_SESSION['username'] ?></a>
+          <a href="/notesapp/" class="nav-link"><?= $_SESSION['username'] ?></a>
+          <form method="POST" action="/notesapp/logout">
+            <input type="hidden" name="_method" value="DELETE">
+            <button class="nav-link">Log Out</button>
+          </form>
         <?php else :?>
         <a href="/notesapp/login" class="nav-link">Log In</a>
         <a href="/notesapp/signup" class="nav-link">Sign Up</a>
