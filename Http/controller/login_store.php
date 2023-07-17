@@ -2,6 +2,7 @@
 use Core\Validator;
 use Core\App;
 use Core\Database;
+use Http\Forms\LoginForm;
 
 $errors=[];
 
@@ -10,16 +11,10 @@ include base_path('bootstrap.php');
 $email=htmlspecialchars($_POST['email']);
 $password=htmlspecialchars($_POST['password']);
 
-if (!Validator::email($email)){
-    $errors['email']="Please provide a valid email address";
-}
+$form = new LoginForm();
 
-if (!Validator::lenVal($password)){
-    $errors['password']="Please provide a valid password";
-}
-
-if (!empty($errors)){
-    //dd($errors);
+if (!$form->validate($email, $password)){
+    $errors=$form->_get();
     require view("login.view.php", $errors);
     die();
 }
