@@ -9,23 +9,19 @@ include base_path('bootstrap.php');
 $email=htmlspecialchars($_POST['email']);
 $password=htmlspecialchars($_POST['password']);
 
-Session::flash('old', [
-    'email' => $email
+
+$form = LoginForm::validate($attributes = [
+   'email' => $email,
+   'password' => $password
 ]);
 
-$form = new LoginForm();
+$signedIn = (new Authenticator)->attempt($email, $password);
 
-if ($form->validate($email, $password)){
-
-    if ((new Authenticator)->attempt($email, $password)){
-        redirect('/notesapp/');
-    } 
-    
-    $form->error('email_password', 'Incorrect email or password');
-}
-
-Session::flash('errors', $form->_get());
-
-redirect('/notesapp/login');
+if (!$signedIn){
+    $form->error('email_password', 'Incorrect email or password')
+    ->throw();
+} 
+redirect('/notesapp/');
 die();
+
 

@@ -3,9 +3,9 @@
     use Core\App;
     use Core\Container;
     use Core\Database;
-    use Core\Session; 
-
-    use Http\Forms\LoginForm;
+    use Core\Session;
+use Core\ValidationException;
+use Http\Forms\LoginForm;
     
     session_start();
 
@@ -28,6 +28,18 @@
    $uri = parse_url($_SERVER['REQUEST_URI'])['path'];
 
    $method = $_POST['_method'] ?? $_SERVER['REQUEST_METHOD'];
+try{
+    $router->route($uri, $method);
+} catch (ValidationException $exception){
+    //dd($_SERVER);
 
-   $router->route($uri, $method);
+    Session::flash('old', [
+        'email' => $email
+    ]);
+    Session::flash('errors', $exception->errors);
+
+    redirect($router->previous());
+}
+
+   Session::unflash();
 
