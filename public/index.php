@@ -4,22 +4,26 @@
     use Core\Container;
     use Core\Database;
     use Core\Session;
-use Core\ValidationException;
-use Http\Forms\LoginForm;
+    use Core\ValidationException;
+    use Http\Forms\LoginForm;
     
     session_start();
 
     const BASE_PATH = __DIR__ . '/../';
+    require BASE_PATH ."vendor/autoload.php";
     
     include BASE_PATH ."Core/functions.php";
     $config = require base_path('config.php');
     
-    spl_autoload_register(function ($class){
+
+    /*spl_autoload_register(function ($class){
 
         $class=str_replace('//', DIRECTORY_SEPARATOR, $class);
 
         require base_path("{$class}.php");
-    });
+    });*/
+
+
 
 
    $router = new Core\Router;

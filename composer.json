@@ -1,0 +1,16 @@
+{
+    "name": "w10-pp/notesapp",
+    "authors": [
+        {
+            "name": "Ivan Jovanoski",
+            "email": "jovanoski.ivan12345@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "Core\\" : "Core/",
+            "Http\\" : "Http"
+        }
+    }
+}
