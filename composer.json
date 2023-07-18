@@ -6,7 +6,9 @@
             "email": "jovanoski.ivan12345@gmail.com"
         }
     ],
-    "require": {},
+    "require": {
+        "illuminate/collections": "^10.15"
+    },
     "autoload": {
         "psr-4": {
             "Core\\" : "Core/",
