@@ -2,6 +2,7 @@
 
 use Http\Forms\LoginForm;
 use Core\Authenticator;
+use Core\Session;
 
 include base_path('bootstrap.php');
 
@@ -19,7 +20,8 @@ if ($form->validate($email, $password)){
     $form->error('email_password', 'Incorrect email or password');
 }
 
-$errors=$form->_get();
-require view("login.view.php", $errors);
+Session::flash('errors', $form->_get());
+
+redirect('/notesapp/login');
 die();
 

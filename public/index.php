@@ -3,6 +3,8 @@
     use Core\App;
     use Core\Container;
     use Core\Database;
+    use Core\Session; 
+
     use Http\Forms\LoginForm;
     
     session_start();
