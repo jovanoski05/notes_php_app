@@ -9,7 +9,7 @@
   </div>
   <div class="form-group mb-3">
     <label for="password">Password</label>
-    <input type="password" class="form-control <?= !empty($errors['password']) ? 'is-invalid' : '' ?>" id="password" name="password" placeholder="Password" value="<?= $password ?? ''?>">
+    <input type="password" class="form-control <?= !empty($errors['password']) ? 'is-invalid' : '' ?>" id="password" name="password" placeholder="Password">
     <div class="invalid-feedback">
         <?= $errors['password'] ?>
     </div>
